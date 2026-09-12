@@ -26,6 +26,8 @@ jobs:
           cache: npm
 
       - run: npm ci
+      - name: npm audit (high+)
+        run: npm audit --audit-level=high
       - uses: nrwl/nx-set-shas@v4
       - run: npx nx run-many -t lint -p interinnl,aquachain,site-seo
       - run: npx nx run-many -t test -p interinnl,aquachain,site-seo
